@@ -1,0 +1,12 @@
+[user]
+	email = m1r4@yandex.com
+	name = Emir
+	signinkey = BE831A4EB65A1EDC8BD59535C504656F85B4B4AD
+[pull]
+	rebase = false
+[alias]
+	pushall = !git remote | xargs -L1 git push --all
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main

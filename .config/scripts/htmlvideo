@@ -1,0 +1,56 @@
+#!/bin/bash -e
+# https://trac.ffmpeg.org/wiki/Hardware/VAAPI
+
+if ! ffmpeg -version | head -n1
+then
+	echo Missing ffmpeg
+	exit 1
+fi
+
+if ! test -f "$1"
+then
+	echo Missing RAW file to encode to MP4
+	exit
+fi
+
+input="$1"
+
+eval $(ffprobe -v 0 -of flat=s=_ -show_format "$input") # neat trick to get video variables into shell
+eval $(ffprobe -v 0 -of flat=s=_ -show_streams "$input")
+
+if test "$format_tags_creation_time" # try get date from video's metadata
+then
+	today=$(echo $format_tags_creation_time | awk '{print $1}' | cut -c-10)
+fi
+
+test "$today" || today="$(date +%Y-%m-%d)"
+output=$today/$(basename "${input%.*}").mp4
+
+if test -f "${output}"
+then
+	echo 🎥 ${output} already exists
+	exit
+fi
+
+mkdir "$today" &>/dev/null || true
+
+if ! FFREPORT=file=/tmp/$(basename $output).log ffmpeg -report -y -i "${input}" \
+	-metadata creation_time="$(date -u -Is -r "${input}")" \
+	-vaapi_device /dev/dri/renderD128 -movflags +faststart -vf 'format=nv12|vaapi,hwupload' -c:v h264_vaapi \
+	$rotate \
+	-acodec aac "${output}" &> /dev/null
+then
+	rm -f "${output}"
+	echo Error encoding "${input}", see /tmp/$(basename $output).log for details
+	exit 1
+fi
+
+test "$format_duration" && printf "🎥 Duration: %.1f seconds\n" $format_duration
+
+function size {
+	echo $(du -h "${1}" | tr '\n\t' ' ')
+}
+
+echo -n "🎥 Input: $(size "${input}") Output: $(size "${output}")"
+# Space savings https://en.wikipedia.org/wiki/Data_compression_ratio
+printf " Space savings: %.0f%%\n" $(bc <<< "scale=2; (1 - $(wc -c < "${output}") / $(wc -c < "${input}") ) * 100")

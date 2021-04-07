@@ -1,0 +1,10 @@
+dwm-activetagindicatorbar-6.2.diff
+dwm-centeredmaster-6.1.diff
+dwm-centeredwindowname-20180909-6.2.diff
+dwm-fibonacci-5.8.2.diff
+dwm-hide_vacant_tags-6.2.diff
+dwm-moveresize-20160731-56a31dc.diff
+dwm-movestack-6.1.diff
+dwm-pertag-20170513-ceac8c9.diff
+dwm-scratchpad-20170207-bb3bd6f.diff
+dwm-systray-20190208-cb3f58a.diff

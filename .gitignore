@@ -1,0 +1,12 @@
+.config/coc/
+.config/scripts/*
+.config/shodan/
+.netrwhist
+app/dwm/dwm
+app/st/st
+app/slock/slock
+app/dmenu/dmenu
+copyq
+plugged
+*.old
+*.o
