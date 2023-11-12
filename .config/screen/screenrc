@@ -1,0 +1,12 @@
+defshell -$SHELL
+startup_message off
+defscrollback 10000
+logfile $HOME/.cache/screenlog/screenlog-%n-%Y%m%d-%0c.%s-%t.log
+logfile flush 5
+logtstamp on
+deflog on
+defmonitor on
+caption always "%?%F%{= Kk}%:%{=u kR}%?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}""}}}}"
+defutf8 on
+activity "Activity in %t(%n)"
+setenv TERM xterm-256color

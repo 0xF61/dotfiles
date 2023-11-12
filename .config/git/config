@@ -1,0 +1,12 @@
+[user]
+	email = 16033911+0xF61@users.noreply.github.com
+	name = Emirhan Kurt
+	signingkey = 2C8A1F09F438452FA634CA0D8189D1391D40A5F2
+[pull]
+	rebase = false
+[alias]
+	pushall = !git remote | xargs -L1 git push --all
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main

@@ -1,0 +1,3 @@
+{
+	"psFormat": "table {{.Image}}\t{{.Names}}\t{{.Command}}\t{{.Status}}"
+}
