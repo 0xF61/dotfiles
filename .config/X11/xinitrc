@@ -1,0 +1,36 @@
+xset -dpms
+xset s off
+
+# Disable bell
+xset -b
+
+# Enable zapping (C-A-<Bksp> kills X)
+setxkbmap -option terminate:ctrl_alt_bksp
+
+xset r rate 161 61
+
+# Enforce correct locales from the beginning
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_MONETARY=en_US.utf8
+export LC_NUMERIC=en_US.utf8
+export LC_TIME=en_US.UTF-8
+export QT_QPA_PLATFORMTHEME=qt5ct
+export WINIT_HIDPI_FACTOR=1
+
+exec dunst &
+#exec slstatus &
+exec copyq &
+
+#xrandr --dpi 180
+xrandr --output eDP-1 --mode 1920x1200
+feh --bg-scale .config/wall.png
+wmname LG3D
+#xgamma -gamma 0.8
+#exec xcompmgr &
+
+#xautolock -time 5 -locker slock &
+#exec dwm
+exec i3

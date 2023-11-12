@@ -1,0 +1,13 @@
+.config/coc/
+.config/discord/
+.config/gnupg
+.config/nvim/plugins
+.config/QtProject.conf
+.config/scripts/*
+.config/shodan/
+copyq
+init.sh
+.netrwhist
+plugged
+.vim/autoload/
+.vim/vimplugins
