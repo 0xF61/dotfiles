@@ -25,7 +25,7 @@ exec dunst &
 exec copyq &
 
 #xrandr --dpi 180
-xrandr --dpi 100 --output eDP1 --mode 1920x1080
+xrandr --output eDP-1 --mode 1920x1200
 feh --bg-scale .config/wall.png
 wmname LG3D
 #xgamma -gamma 0.8

@@ -115,7 +115,7 @@ font:
   bold_italic:
     family: hack
     style: Bold Italic
-  size: 7
+  size: 9
 
 # Base16 Classic Dark 256 - alacritty color config
 # Jason Heeris (http://heeris.id.au)

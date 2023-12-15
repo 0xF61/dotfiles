@@ -5,6 +5,7 @@ lvim.plugins = {
   'tpope/vim-fugitive',
   'vimwiki/vimwiki',
   -- DB connection
+  'tpope/vim-dadbod',
   'kristijanhusak/vim-dadbod-ui',
   dependencies = {
     { 'tpope/vim-dadbod',                     lazy = true },
@@ -16,6 +17,10 @@ lvim.plugins = {
     'DBUIAddConnection',
     'DBUIFindBuffer',
   },
+  init = function()
+    -- Your DBUI configuration
+    vim.g.db_ui_use_nerd_fonts = 1
+  end,
   -- vim-go
   { 'fatih/vim-go', build = ':GoInstallBinaries', },
   -- Undo Tree
@@ -31,26 +36,50 @@ lvim.plugins = {
     'ray-x/lsp_signature.nvim',
     event = 'BufRead',
     config = function() require 'lsp_signature'.on_attach() end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
   }
 }
 
--- local configs = require 'lspconfig.configs'
--- if not configs.ruff_lsp then
---   configs.ruff_lsp = {
---     default_config = {
---       cmd = { 'ruff-lsp' },
---       filetypes = { 'python' },
---       root_dir = require('lspconfig').util.find_git_ancestor,
---       init_options = {
---         settings = {
---           args = {}
---         }
---       }
---     }
---   }
--- end
--- require('lspconfig').ruff_lsp.setup {}
--- require("lvim.lsp.manager").setup("ruff_lsp")
+vim.opt.rtp:append("/opt/homebrew/opt/fzf")
+
+local configs = require 'lspconfig.configs'
+if not configs.ruff_lsp then
+  configs.ruff_lsp = {
+    default_config = {
+      cmd = { 'ruff-lsp' },
+      filetypes = { 'python' },
+      root_dir = require('lspconfig').util.find_git_ancestor,
+      init_options = {
+        settings = {
+          args = {}
+        }
+      }
+    }
+  }
+end
+require('lspconfig').ruff_lsp.setup {
+  on_attach = on_attach,
+}
+
+require("lvim.lsp.manager").setup("ruff_lsp")
+require("lvim.lsp.null-ls.linters").setup {
+  {
+    name = "semgrep",
+    filetypes = {
+      "python",
+      "vue"
+    }
+  },
+}
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -63,7 +92,7 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.colorscheme = 'minimal-base16'
 vim.opt.guicursor = 'a:ver100-blinkon0'
-lvim.format_on_save.enabled = true
+-- lvim.format_on_save.enabled = true
 
 --
 -- Configure DAP
