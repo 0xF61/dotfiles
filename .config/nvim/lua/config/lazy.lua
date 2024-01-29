@@ -44,3 +44,6 @@ require("lazy").setup({
     },
   },
 })
+
+vim.api.nvim_set_hl(0, "Comment", { fg = "#FF6611" })
+vim.api.nvim_set_hl(0, "@comment", { link = "Comment" })
