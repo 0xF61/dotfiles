@@ -34,7 +34,7 @@ exec --no-startup-id thunderbird
 exec --no-startup-id firefox
 
 exec_always --no-startup-id "xrandr --output eDP-1 --mode 1920x1200"
-exec_always --no-startup-id "setxkbmap -layout us,tr -option grp:lctrl_lwin_toggle"
+exec_always --no-startup-id "setxkbmap -layout us,us -variant colemak,basic -option grp:lctrl_lwin_toggle"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
