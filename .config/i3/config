@@ -28,13 +28,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xset r rate 161 61
 exec --no-startup-id flameshot
 exec --no-startup-id keepassxc
-exec --no-startup-id discord
+exec --no-startup-id vesktop
 exec --no-startup-id telegram-desktop
 exec --no-startup-id thunderbird
 exec --no-startup-id firefox
 
 exec_always --no-startup-id "xrandr --output eDP-1 --mode 1920x1200"
-exec_always --no-startup-id "setxkbmap -layout us,us -variant colemak,basic -option grp:lctrl_lwin_toggle"
+exec_always --no-startup-id "setxkbmap -layout us,us -variant basic,colemak -option grp:lctrl_lwin_toggle"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -171,7 +171,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Assign Workspaces:
 assign [class="Firefox"] $ws1
 assign [class="TelegramDesktop"] $ws6
-assign [class="discord"] $ws6
+assign [class="vesktop"] $ws6
 assign [class="KeePassXC"] $ws9
 assign [class="thunderbird"] $ws9
 
