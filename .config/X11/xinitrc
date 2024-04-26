@@ -33,4 +33,6 @@ wmname LG3D
 
 #xautolock -time 5 -locker slock &
 #exec dwm
-exec i3
+ exec i3
+#export DESKTOP_SESSION=plasma 
+#exec startplasma-x11
