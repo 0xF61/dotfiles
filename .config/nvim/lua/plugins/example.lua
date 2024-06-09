@@ -4,6 +4,8 @@ return {
   -- add gruvbox
   { "yazeed1s/minimal.nvim" },
 
+  { "tpope/vim-fugitive" },
+
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
