@@ -20,17 +20,16 @@
     "on-click": "sh $HOME/.config/rofi/bin/powermenu"
   },
   "hyprland/workspaces": {
-    "format": "{name}",
-    "format": "{icon}",
+    "format": "{icon}: {name}",
     "tooltip": false,
-    "all-outputs": true,
+    "all-outputs": false,
     "format-icons": {
       "active": "",
       "default": ""
     }
   },
   "clock": {
-    "format": "<span color='#b4befe'> </span>{:%H:%M}",
+    "format": "<span color='#b4befe'> </span>{:%H:%M}"
   },
   "backlight": {
     "device": "intel_backlight",
@@ -64,38 +63,33 @@
         ""
       ]
     },
-    "scroll-step": 1,
+    "scroll-step": 1
   },
   "bluetooth": {
     "format": "<span color='#b4befe'></span> {status}",
-    "format-disabled": "", // an empty format will hide the module
+    "format-disabled": "",
     "format-connected": "<span color='#b4befe'></span> {num_connections}",
     "tooltip-format": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
   },
   "network": {
-    "interface": "wlo1",
+    "interface": "wlp0s20f3",
     "format": "{ifname}",
     "format-wifi": "<span color='#b4befe'> </span>{essid}",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
-    "tooltip": false,
+    "tooltip": false
   },
   "battery": {
     "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
     "format-charging": "<span color='#b4befe'></span> {capacity}%",
-    "tooltip": false,
-  },
+    "tooltip": false
+  }
 }
