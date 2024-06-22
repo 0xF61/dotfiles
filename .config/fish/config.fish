@@ -29,6 +29,7 @@ bind \en 'fish_commandline_append " &| vim -"'
 # Start X at login
 if status is-login
     if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-        exec ssh-agent startx "$XINITRC" -- -keeptty
+        # exec ssh-agent startx "$XINITRC" -- -keeptty
+        exec Hyprland
     end
 end
