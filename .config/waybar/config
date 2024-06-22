@@ -8,6 +8,7 @@
     "clock"
   ],
   "modules-right": [
+    "tray",
     "backlight",
     "pulseaudio",
     "bluetooth",
@@ -30,6 +31,10 @@
   },
   "clock": {
     "format": "<span color='#b4befe'> </span>{:%H:%M}"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
   },
   "backlight": {
     "device": "intel_backlight",
