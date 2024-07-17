@@ -16,24 +16,27 @@ return {
     },
   },
 
-  -- VimwWiki
+  -- wiki.vim
   {
-    "vimwiki/vimwiki",
+    "lervag/wiki.vim",
     init = function()
-      vim.g.vimwiki_list = {
-        {
-          path = "~/Documents/mywiki/",
-          syntax = "markdown",
-          ext = ".md",
-        },
-      }
-      vim.g.vimwiki_global_ext = 0
-      vim.g.vimwiki_filetypes = { "markdown" }
+      vim.g.wiki_root = "~/Documents/mywiki/"
     end,
   },
 
   -- add git
   { "tpope/vim-fugitive" },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        position = "left",
+      },
+    },
+  },
+
+  { "wakatime/vim-wakatime", lazy = false },
 
   -- change trouble config
   {
@@ -182,6 +185,20 @@ return {
 
   -- use mini.starter instead of alpha
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
+
+  -- codeium
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      require("codeium").setup({
+        enable_chat = true,
+      })
+    end,
+  },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
   { import = "lazyvim.plugins.extras.lang.json" },
