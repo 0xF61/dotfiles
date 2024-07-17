@@ -21,6 +21,7 @@ require("lazy").setup({
 
     -- import/override with your plugins
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.go" },
@@ -37,7 +38,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.vue" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
-    { import = "util.mini-hipatterns" },
+    { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 
     { import = "plugins" },
   },
