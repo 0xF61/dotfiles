@@ -16,19 +16,11 @@ return {
     },
   },
 
-  -- VimwWiki
+  -- wiki.vim
   {
-    "vimwiki/vimwiki",
+    "lervag/wiki.vim",
     init = function()
-      vim.g.vimwiki_list = {
-        {
-          path = "~/Documents/mywiki/",
-          syntax = "markdown",
-          ext = ".md",
-        },
-      }
-      vim.g.vimwiki_global_ext = 0
-      vim.g.vimwiki_filetypes = { "markdown" }
+      vim.g.wiki_root = "~/Documents/mywiki/"
     end,
   },
 
