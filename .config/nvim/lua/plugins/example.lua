@@ -27,6 +27,15 @@ return {
   -- add git
   { "tpope/vim-fugitive" },
 
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        position = "left",
+      },
+    },
+  },
+
   -- change trouble config
   {
     "folke/trouble.nvim",
@@ -174,6 +183,20 @@ return {
 
   -- use mini.starter instead of alpha
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
+
+  -- codeium
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      require("codeium").setup({
+        enable_chat = true,
+      })
+    end,
+  },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
   { import = "lazyvim.plugins.extras.lang.json" },
