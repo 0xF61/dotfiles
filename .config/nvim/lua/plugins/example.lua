@@ -36,6 +36,8 @@ return {
     },
   },
 
+  { "wakatime/vim-wakatime", lazy = false },
+
   -- change trouble config
   {
     "folke/trouble.nvim",
