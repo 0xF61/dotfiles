@@ -16,6 +16,13 @@ return {
     },
   },
 
+  -- markdown
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {},
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+  },
+
   -- wiki.vim
   {
     "lervag/wiki.vim",
@@ -35,8 +42,6 @@ return {
       },
     },
   },
-
-  { "wakatime/vim-wakatime", lazy = false },
 
   -- change trouble config
   {
@@ -77,18 +82,6 @@ return {
     },
   },
 
-  -- add pyright to lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
-      },
-    },
-  },
-
   -- add tsserver and setup with typescript.nvim instead of lspconfig
   {
     "neovim/nvim-lspconfig",
@@ -107,6 +100,7 @@ return {
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
+        pyright = {},
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -121,10 +115,6 @@ return {
       },
     },
   },
-
-  -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
-  -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
-  { import = "lazyvim.plugins.extras.lang.typescript" },
 
   -- add more treesitter parsers
   {
@@ -183,9 +173,6 @@ return {
     end,
   },
 
-  -- use mini.starter instead of alpha
-  { import = "lazyvim.plugins.extras.ui.mini-starter" },
-
   -- codeium
   {
     "Exafunction/codeium.nvim",
@@ -200,9 +187,6 @@ return {
     end,
   },
 
-  -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
-  { import = "lazyvim.plugins.extras.lang.json" },
-
   -- add any tools you want to have installed below
   {
     "williamboman/mason.nvim",
@@ -211,7 +195,8 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
-        "flake8",
+        "gopls",
+        "templ",
       },
     },
   },
