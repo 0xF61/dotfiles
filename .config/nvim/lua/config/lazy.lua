@@ -20,13 +20,14 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     -- import/override with your plugins
+    { import = "lazyvim.plugins.extras.coding.codeium" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.java" },
-    { import = "lazyvim.plugins.extras.lang.markdown" },
+    { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.php" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.rust" },
@@ -38,8 +39,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.vue" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    { import = "lazyvim.plugins.extras.ui.mini-starter" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-    { import = "lazyvim.plugins.extras.coding.codeium" },
 
     { import = "plugins" },
   },
@@ -58,11 +59,11 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
+        -- "gzip",
         -- "matchit",
         -- "matchparen",
         -- "netrwPlugin",
-        "tarPlugin",
+        -- "tarPlugin",
         "tohtml",
         "tutor",
         "zipPlugin",
