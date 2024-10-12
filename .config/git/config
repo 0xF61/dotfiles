@@ -1,7 +1,7 @@
 [user]
     name = 0xf61
-    email = 16033911+0xF61@users.noreply.github.com
-    signingkey = ~/.ssh/id_ed25519
+    email = emirhan@kurt.link
+    signingkey = /home/user/.ssh/id_ed25519.pub
 [gpg]
     format = ssh
 [commit]
